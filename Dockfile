@@ -1,0 +1,8 @@
+# Use the PowerShell base image
+FROM mcr.microsoft.com/powershell:lts-nanoserver-1809
+
+# Install PSWSMan
+RUN pwsh -Command "Install-Module -Name PSWSMan -Force -Scope AllUsers"
+
+# Verify installation
+RUN pwsh -Command "Import-Module PSWSMan; Get-Module -Name PSWSMan"
